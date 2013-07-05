@@ -1,0 +1,28 @@
+i26 to i27
+==========
+
+## New Features ##
+
+### [#1037] Beta support for multiple stat leaderboards
+
+Multiple-Stat leaderboards are a new feature that is being tested with select
+developers. These are leaderboards where you want to track two (or more)
+independent player stats on the same leaderboard.
+
+For example a player might conceptually have the "characters", each with their
+own "strength" attribute. We could model this as three player stats `str_1`,
+`str_2` and `str_3`. A strongest character leaderboard could not have been
+created using the old leaderboard scheme. However adding those stats to
+a multi-stat leaderboard will have the expected behaviour. 
+
+For now there is no publicly accessible UI for this, please contact us if you
+need access to it.
+
+
+## Bug Fixes ##
+
+### [#1023] Friends invite id returned once more in the friend notifications.
+
+Friend invite notifications stopped returning their invite id. They once more
+return the correct information.
+

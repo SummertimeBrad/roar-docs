@@ -1,0 +1,41 @@
+
+i55 to i56
+==========
+
+This was primarily a bug-fix release.
+
+## New Features ##
+
+### [FP-354] Changes to make accessing the api easier ( especially for old Internet Explorer versions)
+
+Some older versions of IE do not support the cross-domain requests in some situations, and
+don't forward correct content type information in others. This means accessing roar from IE can be painful.
+
+Roar now treats POST requests with a missing `Content-Type` header or a `Content-Type` header containing
+`text/plain` as a `x-www-form-url-encoded` request.
+
+It also now accepts all requests that are made through GET as POST requests too, so you can make calls to roar like:
+
+~~~
+http://api.roar.io/<YOURGAME>/info/poll?auth_token=<YOURAUTHTOKEN>
+~~~
+
+
+### [EDTR-9,EDTR-11] Allow multiple users to be added to a team and access the same games.
+
+## Bug Fixes ##
+
+### [CHAM-52] Delayed loading of scripts until server core is completely initialized
+
+This prevents crashes that were occurring due to scripts attempting to create player objects
+on script load, before the player subsystem was initialized.
+
+### Updated to newer version of JSON Parsing library
+
+This may prevent some cases where JSON was not parsing correctly.
+
+## Fixed authentication to work for old and new editors.
+
+The new editor introduced an authentication system that was incompatible with the previous editor.
+This meant that the old editor could not be accessed.
+This incompatibility has been resolved and both editors should be accessible once again.

@@ -1,0 +1,104 @@
+i49 to i50
+==========
+
+## New Features ##
+
+### [CHAM-17] Enabled getting of player id from player name to lua.
+    
+Usage is `id = player.get_player_id_by_name("somename")`. Returns `null` if not found.
+
+### [CHAM-16] Added `lua_db` function `escape` that makes a string mysql safe (_beta_).
+
+When forming a database query in lua, using input that comes from a user you should use the new `escape` function
+to ensure that you do not open yourself up to SQL injection attacks. Typical useage looks like this
+
+~~~{.lua}
+lua_db:query( string.format(
+    "SELECT * FROM BLAH WHERE key=%s",
+    lua_db:escape("This will be safe'; TRUNCATE TABLE BLAH;")
+  ) )
+~~~
+
+
+### [CHAM-15] Added lua `to_json` and `from_json` functions (_beta_).
+Functions have been added to assist with working with JSON in lua.
+
+Converting a lua table to JSON is easy.
+
+~~~{.lua}
+local s
+s = to_json( { a=1 } )
+-- now s = '{"a":1}'
+s = to_json( { "hello", "bye" } )
+-- now s = '["hello","bye"]'
+~~~
+
+This handles tables, strings, numbers, explicit `null` values, `true` and `false`.
+However there are a few issues to be aware of.
+
+ * Since lua does not differentiate between arrays and dictionaries you should not try to convert mixed dictionaries.
+ * An empty table converts to `{}` rather than `[]`
+ * lua dictionaries support arbitrary keys. However if you convert a table with
+   keys that are not strings you may get an error or invalid JSON.
+ * setting a value to `null` in a table removes that entry from the table, so the following may not do what you expect.
+
+~~~{.lua}
+local v = {bar=1}
+v.foo = null
+s = to_json(v)
+-- s = '{"bar":1}' rather than '{"bar":1,"foo":null}'
+~~~
+
+Converting from JSON is easy too.
+
+~~~{.lua}
+local v
+v = from_json( '{"a":1}' )
+-- now v = { a=1 }
+v = from_json( '[1,2]' )
+-- now v = {1,2}
+~~~
+
+Some of the caveats from above still apply:
+
+* `from_json( '{"a":null}' )` will produce an empty object.
+
+
+### [CHAM-14] Added basic network calls functionality to lua (_beta_).
+It is now possible to make network calls to other services from within lua.
+However as this is done in an asynchronous manner there are a few limitations.
+Starting the request is done with the `lue_network:request` function. This
+requires the url, the callback to call, and some optional extra user data to
+pass to the callback.
+
+Handling the response must be done in a callback function which gets passed
+a `data` object containing:
+
+ * `data.url` The request url
+ * `data.user_data` Some extra data passed to the request
+ * `data.response_code` The http request response code - typically 200 for success, 40x for error
+ * `data.response` The response body
+
+The code to make calls looks like this:
+
+~~~{.lua}
+function nw_callback( data )
+  print( data.url )
+  print( data.user_data[0] )
+  print( data.response_code )
+  print( data.response )
+end
+
+--Invoking the network call
+lua_network:request(
+  "http://api.roar.io/mafp/info/ping/",
+  nw_callback,
+  {"some user data","yep"}
+  )
+~~~
+
+A limitation of the current method is that it only supports `GET` operations, not `POST` or other methods.
+
+## Bug Fixes ##
+
+No bug fixes in this release

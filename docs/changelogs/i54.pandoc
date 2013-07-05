@@ -1,0 +1,17 @@
+
+i53 to i54
+==========
+
+This release was to provide a number of small, mostly ui bug fixes.
+
+## New Features ##
+
+### [CODAT-4] Added register link http://admin.roar.io/beta/#/register in ui 
+
+## Bug Fixes ##
+
+### [RADMIN-121] Fix error in game creation
+### [CODAT-2] Fixed link to point to github webapi
+### [CHAM-32] Fixed url pointing to cacert file
+### [CHAM-33] Global variable in recursive re-render function causing inconsistent item variable updates
+

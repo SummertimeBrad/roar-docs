@@ -1,0 +1,58 @@
+i24 to i25
+==========
+
+## New Features ##
+
+### [#1017] Added Google authentication for players
+
+The functions `google/create_user` `google/login_user` and
+`google/bind_user` have been added. They all accept a `code` value
+that must be obtained by the caller from Google. The usual way to
+obtain such a token is by forwarding the user to a location like:
+
+~~~{.txt}
+https://accounts.google.com/o/oauth2/auth?
+   response_type=code&
+   redirect_uri=YOUR_REDIRECT_URL&
+   client_id=YOUR_CLIENT_ID&
+   scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fplus.me&
+   access_type=offline
+~~~
+
+This will return the code in the browser URL after the login and
+redirect.
+
+You will need to configure the Google authentication on the settings
+page.
+
+For your convenience (and to negate the need to obtain codes twice)
+the `google/create_user` call returns a roar auth_token, so you do not
+need to subsequently call `google/login_user`
+
+### [#1015] In lua `p:notify("key",value")` adds entries into the server block
+
+Scripts can add to the player notifications returned in the `server`
+XML chunk.
+
+This means scripts can now get information to players from Regen
+scripts and Script modifiers as well as allowing functions to be more modular.
+
+Calls should look like this:
+
+~~~{.lua}
+args.player:notify("some_key","1234;4321;abc")
+~~~
+
+Response will look like this
+
+~~~{.xml}
+<server>
+  <script key="some_key" value="1234;4321;abc" />
+</server>
+~~~
+
+## Bug Fixes ##
+
+### [#232] Improved seeding and generation of random numbers from lua with `math.random()`
+
+### [#1009] Friends are now unlinked correctly on player deletion

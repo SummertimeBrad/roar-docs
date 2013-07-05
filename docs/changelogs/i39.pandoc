@@ -1,0 +1,18 @@
+i38 to i39
+==========
+
+## New Features ##
+
+No new features this iteration.
+
+
+## Bug Fixes ##
+
+### [#1151] Fixed logging bug that was generating excess log entries
+
+These extra log entries were consuming large amounts of space on some servers and causing space issues.
+
+### [#1152] Empty publishes were failing 
+
+Empty publishes (those with no changes) were failing with odd messages about git. These empty 
+publishes are now behaving correctly.

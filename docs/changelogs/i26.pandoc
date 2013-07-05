@@ -1,0 +1,25 @@
+i25 to i26
+==========
+
+## New Features ##
+
+### [#1004] Playhaven integration available under 'Services'
+
+Integration for the Playhaven (www.playhaven.com) real-time mobile game
+marketing platform has been added. It is available under the Services
+section of the game configuration UI.
+
+## Bug Fixes ##
+
+### [#917] Duplicate notifications should no longer occur 
+
+In certain situations players could receive the same notification
+multiple times. (This included script notifications, friend
+notifications and gift notifications). They should now correctly only
+receive one notification.
+
+### [#1026] Script requirements now save correctly
+
+Script requirements were not saving correctly in the UI and were
+disapearing sporadically. They should now be saving correctly.
+

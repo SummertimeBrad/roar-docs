@@ -1,0 +1,16 @@
+i41 to i42
+==========
+
+## New Features ##
+
+### [#1165] Can now specify a prefix for the name in google wallet purchases.
+
+A prefix that apears at the start of all google wallet purchases can now be specified in the pannel
+for controlling google wallet parameters. This can be useful for filtering the transaction log in
+google wallet if you have more than one application sharing the same wallet.
+
+## Bug Fixes ##
+
+No bug fixes this release
+
+

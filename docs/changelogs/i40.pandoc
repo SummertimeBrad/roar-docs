@@ -1,0 +1,16 @@
+i38 to i39
+==========
+
+## New Features ##
+
+### [#1156] Added support for multiple google app ids
+There are some cases where the same google application might be accessed using 
+multiple different application ids. Roar was unable to accept tokens from these
+games due to only accepting a single application id. 
+
+Roar will now accept a space seperates list of application ids, and will accept tokens
+from any of these ids.
+
+## Bug Fixes ##
+
+No bug fixes this iteration

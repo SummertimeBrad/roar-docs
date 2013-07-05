@@ -1,0 +1,28 @@
+i31 to i32
+==========
+
+## New Features ##
+
+### [1090] Now supporrts google login functions using oauth2 tokens
+These functions are `google/create_user_token`, `google/bind_user_token` and
+`google/login_user_token`. These functions accept an oauth2 token, which are
+often exposed by the google APIs. The functions are equivalent to the oauth2
+code functions `google/create_user`, `google/bind_user` and
+`google/login_user`.
+
+### [1054] Google chrome web store support added
+Roar now support integration with the google chrome web store. To use this:
+
+1. Obtain google checkout and webstore accounts.
+2. Configure the webstore account callback to be `http://api.roar.io/GAME_NAME/chrome_web_store/callback/`
+3. Enter the details in the roar configuration page.
+4. Add entries to the google web store from the roar UI. 
+5. Client will call `chrome_web_store/list/` to obtain the list of items that can be purchased. Each of these contains a jwt field, which will be passed to the google web store API for purchase.
+
+More details can be found here http://support.roarengine.com/kb/building-blocks/google-chrome-webstore-integration. 
+A full example with of the UI integration can be found at https://github.com/mikeando/roar_minimal
+
+
+## Bug Fixes ##
+
+### [1103] Deleted achievements were crashing the server

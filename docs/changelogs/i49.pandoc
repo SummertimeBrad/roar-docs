@@ -1,0 +1,14 @@
+i48 to i49
+==========
+
+## New Features ##
+
+No new user-facing features this release.
+
+
+
+## Bug Fixes ##
+
+### Fixed bug where player data could get lost on publish.
+
+

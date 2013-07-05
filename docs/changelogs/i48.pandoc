@@ -1,0 +1,24 @@
+i47 to i48
+==========
+
+## New Features ##
+
+### [???] Added new `get_current_timestring` lua function
+This function returns a string representation of the time in YYYY-MM-DD
+HH:MM:SS format This format has the advantage that ordering by time is the same
+as ordering the strings lexicographically.
+
+Example usage is:
+
+~~~
+local timestr = get_current_timestring()
+if timestr < "2013-01-01 00:00:00" then 
+  print("Its still 2012")
+end
+~~~
+
+
+## Bug Fixes ##
+
+No bug fixes in this release.
+

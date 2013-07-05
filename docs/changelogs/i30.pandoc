@@ -1,0 +1,61 @@
+i29 to i30
+==========
+
+## New Features ##
+
+###[#1031] Roar now supports facebook offer wall integration
+
+To integrate the facebook in-app currency offer wall into your application you must follow these steps:
+
+ * Set the currency that you wish to use in the facebook configuration UI. And set the facebook credits callback to `api.roar.io/gamename/admin/fb/` (Using the correct game name and server for your game).
+
+ * Serve a currency icon and a currency info file from one of your servers. The content of the info file should look like this:
+
+~~~{.html}
+<html>
+  <head prefix="og: http://ogp.me/ns#
+    fb: http://ogp.me/ns/fb#
+    fbpayment:http://ogp.me/ns/fb/fbpayment#">
+    <meta property="fb:app_id"      content="[YOUR APP ID]" >
+    <meta property="og:type"        content="fbpayment:currency" >
+    <meta property="og:url"         content="[URL OF THIS FILE]" >
+    <meta property="og:title"       content="[NAME OF YOUR CURRENCY]" >
+    <meta property="og:description" content="[DESCRIPTION OF THIS CURRENCY]" >
+    <meta property="og:image"       content="[URL TO AN IMAGE]" >
+    <meta property="fbpayment:rate" content="[CONVERSION RATE OF FB INTO YOUR CURRENCY]" >
+  </head>
+</html>
+~~~
+
+ * Display the offerwall from your app, like this: (this example uses jQuery)
+
+~~~{.js}
+$('#YOUR_BUTTON').click( function(){
+  var obj = {
+    method: 'pay',
+    action: 'earn_currency',
+    product: '[URL OF CURRENCY INFO PAGE]'
+  };
+
+  FB.ui(obj, function(data) { /* handle response */ } );
+});
+~~~
+
+
+## Bug Fixes ##
+
+###[#1087,1086] Saving old games configuration no longer generates a warning/error
+
+Some old games that had not been updated were generating an error or warning
+when saving their configuration. In most cases the configuration was getting saved correctly,
+so this was mostly a cosmetic issue.
+
+###[1084,1083] Improved facebook credits handling
+
+The facebook credits handling code relied on some facebook features that were
+soon to become depreciated. This has been updated to behave correctly going
+forward.
+
+
+
+

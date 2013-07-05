@@ -1,0 +1,21 @@
+i44 to i45
+==========
+
+## New Features ##
+
+### [#????] Added admin scripts
+These are callable using `scripts/run_admin` with the `admin_token`. They must be whitelisted using
+`whitelist_admin`. Note that these scripts do not receive an `args.player` argument, but do receive others
+arguments in the same manner as conventional scripts.
+
+
+### [#1172] Added ability for admin to create and login players
+This is done though the `admin/create_player` and `admin/login_player` functions.
+
+The `create_player` function requires a name and admin token. It does not set the players password, which must be set using a separate call.
+
+The `login_player` function requires an admin token, and either a name or player id.
+
+## Bug Fixes ##
+
+No bug fixes this release.

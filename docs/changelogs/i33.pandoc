@@ -1,0 +1,29 @@
+i32 to i33
+==========
+
+## New Features ##
+
+### [#1111] Implemented google/friends call
+Note that this requires the developer have access to the gplus games
+api, and the user to have granted the right permissions.
+
+### [#1114] Player create functions return an auth_token
+This removes some of the duplication of the old create/login workflow, as once
+a player is created the application will have an auth_token ready to use.
+
+## Bug Fixes ##
+
+### [#1121] Facebook offerwall was not granting currency
+No currency was getting awarded on completion of the offer, even though the
+offer seemed to succeed.
+
+### [#1120] gplus information was potentially uninitialised in some cases
+No live example of tis kind of data corruption has been noted.
+
+### [#1112,#1113] Scripts (and some other calls) can no longer use old `auth_tokens`
+Scripts and some other functions were using an internal cache for auth_tokens
+that was not getting refreshed at an appropriate time. The cache is now update
+any time a players auth_token may have changed.
+
+
+

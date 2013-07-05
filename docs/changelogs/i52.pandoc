@@ -1,0 +1,32 @@
+i51 to i52
+==========
+
+## New Features ##
+
+### [CHAM-27] Enable binding facebook accounts to roar accounts using oauth tokens.
+
+It was impossible to bind a facebook account to an existing roar account on platforms that used 
+oauth tokens rather than signed requests.
+
+There's now a `facebook/bind_oauth` that parallels the `facebook/bind_signed`
+so you can now use either.
+
+### [CHAM-26] Added friends/list_invites functionality
+    
+Typical response looks like:
+    
+~~~{.xml}
+<roar tick="130868381316">
+  <friends>
+    <list_invites status="ok">
+       <invite invite_id="xxxyyy" from_player_id="aaabbcc" from_player_name="their name" message="..."/>
+       <invite invite_id="xxxyyy" from_player_id="aaabbcc" from_player_name="their name" message="..."/>
+    </list_invites>
+  </friends>
+</roar>
+~~~
+
+## Bug Fixes ##
+
+### [CHAM-24] Fixed token returned by facebook/fetch_oauth_token
+

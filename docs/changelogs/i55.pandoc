@@ -1,0 +1,45 @@
+
+i54 to i55
+==========
+
+This release provides a new editor interface and improves and fixes some aspects of regenerating resources.
+
+
+## New Features ##
+
+### New editor.
+
+* New editor that should support all the old functionality and be easier to use.
+* Backend changes to how authentication is performed and errors in authentication are reported.
+* Implementation of user password reset
+
+### [CHAM-43] Next regen time returned when viewing user stats.
+
+## Bug Fixes ##
+
+### [CHAM-42] Fixed tracking of regeneration times over server restarts and player unloads.
+
+This was typically only a problem for very long regeneration times, where restarting the server, 
+or having a player purged from player cache due to inactivity was causing regeneration times to be reset.
+These are now correctly saved and restored from the player database entries, so regeneration with long 
+time periods should work correctly. 
+
+### [CHAM-40] Adding default save type to tasks (instant_complete)
+
+Tasks were occasionally being created with no `type` associated with them, this was causing them to 
+be ignored by the server. Tasks are now created with a correct default type.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

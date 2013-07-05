@@ -1,0 +1,14 @@
+i36 to i37
+==========
+
+## New Features ##
+
+No new features this iteration.
+
+
+## Bug Fixes ##
+
+### [#1142,#1143] Deleted players are now removed from leaderboards
+Using the admin interface to delete a player was leaving their data in the leaderboards.
+This old data has been removed and deleting a player will now correctly remove that player from
+the leaderboards.

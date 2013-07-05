@@ -1,0 +1,13 @@
+i52 to i53
+==========
+
+This release was to improve the support of games that are spread over clusters of servers.
+The chanegs were mostly internal, with minimal user visible effect.
+
+## New Features ##
+
+
+## Bug Fixes ##
+
+### [???] Code console should now work correctly for multi system games
+

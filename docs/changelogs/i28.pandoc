@@ -1,0 +1,20 @@
+i27 to i28
+==========
+
+## New Features ##
+
+### [#1033] Added support for tracking XP in leaderboards
+    
+The UI entry to enable this is on the main config page. These xp leaderboards will work like 
+other leaderboards. The XP has a hardcoded id of 5001.
+
+### [#1044] Listing the available leaderboards now returns the resource_id
+
+While this is mostly for internal tools, some developers may find it useful.
+
+## Bug Fixes ##
+
+### [#1041] Configuration UI no longer generates a large number of event warnings
+
+### [#970] Fixed some potential server crashes when reading configuration files.
+

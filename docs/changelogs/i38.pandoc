@@ -1,0 +1,18 @@
+i37 to i38
+==========
+
+## New Features ##
+
+No new features this iteration.
+
+
+## Bug Fixes ##
+
+### [#1149] Correctly handle facebook friends without names
+
+Sometimes facebook friends come back without a name node.
+These people really seem to have no associated name on their facebook page also.
+Roar was expecting a name field, and failing on such friends.
+    
+We now just return an empty string for the name if the name is missing.
+

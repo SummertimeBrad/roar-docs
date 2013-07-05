@@ -1,0 +1,18 @@
+i46 to i47
+==========
+
+## New Features ##
+
+### [CHAM-5] Added support to getting json formatted results from scripts/run and scripts/run_auth
+The `scripts/run` and `scritps/run_auth` functions can now return JSON rather than XML.
+To make this happen just add `format=json` to the POST arguments.
+
+## Bug Fixes ##
+
+### [CHAM-4] Fixed google friends failing due to stricter json requirements
+The changes to JSON handling in the core libraries [i46 - #1186] caused
+calls to obtain google friends to fail. These calls are once again working correctly.
+
+### [CHAM-3] Login with google causing server slow down.
+A missing index of a core table was causing searching for players by google id to
+be slow. This index has been added and things are once again fast.

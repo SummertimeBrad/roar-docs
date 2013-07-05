@@ -1,0 +1,20 @@
+i33 to i34
+==========
+
+## New Features ##
+
+### [#621] Added `admin/increment_stat`
+This works just like `admin/set_stat`, except it increments or decrements the
+corresponding stat.
+
+### [#1081] Players notified when they gain an item
+When a player recieves an item through any means they will get a notification
+in the server block that looks like this:
+
+~~~    
+<item_add item_id="1478812237" item_ikey="item_ikey_1"/>
+~~~
+
+## Bug Fixes ##
+
+None

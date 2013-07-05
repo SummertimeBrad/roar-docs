@@ -1,0 +1,24 @@
+i40 to i41
+==========
+
+## New Features ##
+
+No new features this release.
+
+## Bug Fixes ##
+
+### [#1157] Player data can now be removed from the leaderboard on player deletion.
+
+Player data for deleted players was not getting removed from some leaderboards
+due to a permissions issue. The data should now be removed. Existing
+leaderboards have had this old data removed.
+
+### [#1156] Loging in via Facebook and Google is now more reliable.
+
+There was an issue where the login details for a new player were not being made
+immediately available to the login system, meaning there could be a delay
+between player creation and next possible login.
+
+The Facebook and Google information is now immediately made avaialble to the
+login system after create or bind.
+

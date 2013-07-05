@@ -1,0 +1,17 @@
+i45 to i46
+==========
+
+## New Features ##
+
+### [#1182] Several server to server communications now use SSL host checking.
+This improves the security for integrations with 3rd party components, such as google G+ and facebook.
+
+### Numerous performance improvements in the core server
+ * `[#1185]` Calls to facebook are now made by the web layer rather than the core server.
+ * `[#1186]` Switched to using fastjson json library for all the server to web layer communications.
+ * `[#1187]` Switched to more efficient memory allocator in server binary.
+ * `[#1188]` Switched to single event threaded model, rather than one thread per request.
+
+## Bug Fixes ##
+
+### [#1167] Appstore entries with empty modifiers no-longer cause javascript errors in the editor.

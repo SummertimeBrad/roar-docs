@@ -1,0 +1,52 @@
+i43 to i44
+==========
+
+## New Features ##
+
+### [#1155] Added basic urban airship integration
+
+
+### [#1172] Added experimental direct database access to lua scripting. 
+This is not available by default - contact us if you want access to it.
+
+Usage looks like this:
+
+~~~
+function luadbtest(args)
+  local it = lua_db:query("SELECT id, name FROM Junk")
+  local retval = {}
+  while not it:is_end() do
+    table.insert( retval, { id=it:column_as_string(0), name=it:column_as_string(1) } )
+    it:next()
+  end
+  return 0, retval
+end
+
+whitelist("luadbtest")
+~~~
+            
+
+#### [#1173] Return player id on login or create
+All create or login calls now return the player id.    
+
+#### [#1174] Added google/login_or_create
+Since trying to log in or create a player invalidates a google oauth2 code, we have provided an alternative function that first tries to log a player in with the given code, or else creates a new player associated to the corresponding google user.
+
+This call returns the "mode" set to "create" or "login" depending on which method occurred. It also returns the players id and auth token.
+
+#### [#1175] Added google/token functions.
+This call allows the client to get the current users google oauth2 token.
+
+## Bug Fixes ##
+
+
+### [#1176] Players google data is immediately stored.
+
+Player data corresponding to their google account was only getting periodically synced to the database, this is now occurring immediately.
+One symptom was that in some situations players could not log in immediately after creating an account.
+
+### [#1177] Obtaining a users google id now works on tokens with a larger variety of scopes.
+
+Originally we required the application to request the `userinfo.profile` scope, for the methods we used to obatin a players google id. Applications can now use the `gplus.me` scope now, and any scope that embeds the users id into the token info.
+
+### [#1178] Fixed some runtime warnings from some server code.

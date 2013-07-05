@@ -1,0 +1,15 @@
+i34 to i35
+==========
+
+## New Features ##
+
+### [#1138] Added tags to chrome web store entries
+Chrome web store entries now have tags in the same style as shops. 
+These can be used for client side filtering and sorting of the entries.
+
+## Bug Fixes ##
+
+### [#1140] Chrome web store entries now render correctly when having no modifiers.
+When a entry was created with no modifiers, it would fail to render in the editor UI.
+Such entries now render correctly.
+

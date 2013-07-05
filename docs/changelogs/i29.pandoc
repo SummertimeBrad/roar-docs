@@ -1,0 +1,14 @@
+i28 to i29
+==========
+
+## New Features ##
+
+
+## Bug Fixes ##
+
+### [#1080] Friends lists are now saving correctly.
+
+Some previous versions (i25,i26) were not saving friends back to the database correctly.
+These versions had only been rolled out to a few users, so this will not be effect most users.
+
+

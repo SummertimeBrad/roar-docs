@@ -1,0 +1,14 @@
+i42 to i43
+==========
+
+## New Features ##
+
+No new features this release
+
+## Bug Fixes ##
+
+### [#1166] Processing of large script objects was slow.
+
+Script objects were getting copied more times than necessary, which was causing a significant slow-down
+when working with large script objects. The unneeded copies have been removed.
+

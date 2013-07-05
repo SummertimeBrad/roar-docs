@@ -1,0 +1,20 @@
+i35 to i36
+==========
+
+## New Features ##
+
+### [#1040] Losing an item now generates a notification
+When a player loses an item as either a cost to perform an action, or as part
+of a script, they recieve a notification. This notification looks like this:
+
+~~~{.xml}
+<item_lose ikey='an_ikey' id='12312' />
+~~~
+
+## Bug Fixes ##
+
+### [#1145] Fixed security issue htta was exposing facebook auth tokens.
+A default created player using the facebook/create_oauth, was incorrectly
+fgetting their name set to the oauth tokens value. It is now getting set to
+a random string instead. Also players with names that apear to be oauth tokens
+have been renamed.

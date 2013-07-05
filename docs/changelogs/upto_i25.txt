@@ -1,0 +1,402 @@
+
+==========
+i23 to i24
+==========
+
+-- New Features --
+
+ * [#997] Added achievement info to /info/user
+
+          You can now get information about what achievements other players
+          have completed by calling `/info/user/`.  This info comes back in an
+          achievements block, using the new attributes style for achievements,
+          rather than the old (depreciated) tags format
+
+ * [#996] Added info about the corresponding task to achievements
+
+          Any call that returns information about an achievement will now have
+          two additional attributes for each achievement `task_ikey` and
+          `task_label`, containing information about the corresponding task. 
+
+ * [#983] Gifts now report their label
+
+          Any call that returns information about a gift from the globally
+          available gifts should now contain an additional `label` tag for the
+          item.
+
+-- Bug Fixes --
+
+ * [#986] Added achievement info to /user/achievements as attributes.
+
+          `/user/achievements/` was using a format inconsistent with the other
+          calls, returning its values as element, rather than as attributes.
+          For now it doubles up and uses both elements and attributes, however
+          the old element version should be considered depreciated and may be
+          removed in future.
+
+-- Depreciated Features --
+
+ * [#986] Added achievement info to /user/achievements as attributes.
+
+          With the new format for `/user/achievements` (see above) the element
+          entries in `/user/achievements/` should be considered depreciated.
+
+==========
+i22 to i23
+==========
+
+-- New Features --
+ * [#995] Can now get list of players items from lua 
+
+      `p:items()` returns all of the players items
+      `local weapons = p:items({tag="weapon"})` will return only item tagged with weapon
+      `local lemons = p:items({ikey="lemon"})` will return only "lemon" items
+
+-- Bug Fixes --
+ * [#822] /mail/what_can_i_give now correctly returns the tags on the gift.
+
+==========
+i21 to i22
+==========
+
+-- New Features --
+None
+
+-- Bug Fixes --
+ * [#987] Removed unneeded internal row id from friends responses
+
+==========
+i20 to i21
+==========
+
+-- New Features --
+ * [#961] Added prices into returned item info.
+
+-- Bug Fixes --
+ * [#973] Removed timed scripts for non expert users
+
+===========
+i19 to i20
+===========
+
+-- New Features --
+ * [#929] Added new scriptable regen - special scripts that are called periodically
+          while a player is "live".
+
+-- Bug Fixes --
+ * [#962] Fixed bug that was preventing login to the UI
+
+===========
+i18 to i19
+===========
+
+-- New Features --
+None
+
+-- Bug Fixes --
+ * [#951] Empty script nodes nolonger crash the server on startup.
+ * [#949] Searching for a map without creating it no longer crashes the server.
+ * [#941] Script requirements are now correctly handled by the server.
+ * [#931] Fixed leaderboard schema so that entry ids are unsigned bigint.
+ * [#921] Extra debugging output is nolonger returned by items/view_all API call.
+ * [#947] Bug with updating custom properties in the UI is fixed
+ * [#945] Download backup is now working correctly
+
+===========
+i17 to i18
+===========
+
+-- Editor Changes --
+ * [#909] Game configuration can now be pushed to a new game.
+ * [#908] Added ability to export a games configuration for backup purposes.
+
+-- Core changes --
+ * [#866] Equip/unequip/use for items generates information in the server block 
+ * [#925] Added the lua pcall, xpcall, setmetatable and getmetatable functions.
+
+===========
+i16 to i17
+===========
+
+-- Core Changes --
+ * [#734] Fixed some cases where server would fail to start with invalid XML
+ * [#898] Added missing UI for appstore
+ * [#458] Information returned by nested costs/requirements/modifiers is now more consistent.
+ * [#897] Fixed case where random choice modifiers could infrequently not apply their effect.
+ * [#892,#891] Fixed unicode handling bug
+ * [#868] Fix for gift limits not functioning
+
+-- Scripting --
+ * [#883] Added player:remove_item(item) to lua scripts.
+ * [#886] Added lua item:label() function
+ 
+-- Documentation Changes --
+ * [@fd671a5] Updated API docs to show optional name param for facebook/create_oauth
+
+
+===========
+i15 to i16
+===========
+
+-- Core Changes --
+ * [#857] Player achievements were not storing correctly on reload of player.
+ * [#876] Friend invites could occasionally be sent twice.
+ * [#870] Apple appstore not accessible due to missing config entry.
+
+-- Documentation Changes --
+ * [@5cd8471] fixed leaderboards/view api doc
+ * [@2671592] fixed user/netdrive_set documentation
+ * [@5eec7ac] Fixed user/private_set documentation
+ * [@4d47d42] fixed user/netdrive_set documentation
+
+===========
+i14 to i15
+===========
+
+-- Core --
+ * [#349] Added support for Apple Appstore
+
+
+===========
+i13 to i14
+===========
+
+-- Editor Changes --
+ * [#584] Item variables now have a delete button
+ * [#785] Validates UI level inputs for achievement steps and item_variable entries
+ * [#850] Pulldowns now require a selection (if on same tab)
+ * [#846] Removed public item properties from ui
+ * [#816] Admin token is now validated as an integer-only field
+
+
+===========
+i12 to i13
+===========
+
+-- Editor Changes --
+ * [#615] Failure to create a new game returns you to a useful screen.
+ * [#801] Unlimited can be used as gift limit counts.
+ * [#803] Achievements now validate input on creation.
+ * [#822] Editor now correctly saves down gift tags.
+ * [#824,#811] Fixes to handling of facebook application settings.
+ * [#838] New game creation checks validity before creating.
+ * [#841] Added ikey/tag sanitizer to ensure keys are of valid format.
+ * [#847] facebook/login_oauth now works from the console.
+
+-- Documentation --
+ * [#807] Fixed documentation generation for leaderboards/view.
+
+-- Scripting --
+ * [#751] Added player:get_custom and player:set_custom functions to lua.
+
+-- Core --
+ * [#348] Added admin/set_custom to set a players custom properties.
+ * [#418] Some cases where item ids would be returned as negative are fixed.
+ * [#738] Removed label from item_cost and item_requirement.
+          This means that error messages for these will have changed to the
+	  form "requires ikey(count)". 
+ * [#820] Added admin/view_player that returns stats and items.
+ * [#844] The new user/change_name now actually works.
+
+
+===========
+i11 to i12
+===========
+
+-- Editor Changes --
+ * [#781 #818] System emails developers accessing an old version
+
+-- Documentation Changes --
+ * [#814] Fixed malformed XML in example responses that was breaking doc generation for some functions
+
+-- Core Changes --
+ * [#653] Added a user/change_name function
+ * [#655] Can now add a facebook account to an existing roar account using facebook/bind_signed
+
+
+===========
+i10 to i11
+===========
+
+-- Editor Changes --
+ * [#797] Levels save correctly now
+
+-- Scripting Changes --
+See the scripting documentation for full details
+ * [#379,#795] Added player:grant_item("ikey") and item:id(), item:ikey() item functions to lua.
+ * [#794] Enabled player:get_stat("stat"), player:set_stat("stat",v) and player:increment_stat("stat",dv) functions in lua.
+ * [#792] Added player:id(), player:name(), player:level() player:xp() and player:facebook_uid() to lua
+ * [#366] Added player:equip(item) player:unequip(item) and item:is_equipped()
+
+-- Core Changes --
+ * [#654] Added method to change a players password.
+ * [#793] Invalid item ids in get_item no longer crash or error, but return nil, mesg
+
+===========
+i9 to i10
+===========
+
+-- Editor Changes --
+ * [#479] items/view works from the console once again
+ * [#721,#719] Editor properly handles some missnamed scripts better, and its harder to generate misnamed scripts.
+ * [#692] Can now get a list of items by tag using /items/view_all with tags argument. No tags lists all items.
+ * [#689,#743] Editor backend is now json based.
+ * [#702,#703] Label has been removed from item costs and requirements
+ * [#567] Add API reference and Support doc links to UI
+ * [#716] Scriptlog is once again accessible via the UI console
+ * [#641] Server console works for single off api.roar.io host
+
+-- Documentation Changes --
+ * [docs] Updated docs XML for shop/list/
+
+-- Core Changes --
+ * [#741,#742] Fix so that get_player works again and returns nil on failure rather than erroring.
+ * [#744] Prevented crash on server shutdown or restart
+ * [#717] Added logging for creation of invalid items.
+
+
+===========
+i8 to i9
+===========
+
+-- Editor Changes --
+ * [#679] Added password reset for roar admin logins
+ * [#681] Login page restructured
+ * [#677] Gift tab nomenclature made consistent (changed "requires" to "requirements")
+ * [#597] Tags input box and label are now styled consistently
+ * [#486] Added friends requirements
+ * [#370] Added gift limits to game configuation UI.
+ * [#640] Fixed duplication of tags when bolt writing items to XML. Also cleans up duplicate tags on load/save correctly.
+ * [#678] New user signup integrated into editor
+ * [#469] Item public properties settable from configuration UI
+ * [#688] Item variable ikey default set to "default"
+
+-- Documentation Changes --
+ * [docs] removed the id input and fixed the xml
+ * [docs] fixed xml to correct the server chunk
+
+-- Core Changes --
+ * [#680] Fixed issue where facebook id was not getting found by create_oauth_token
+ * [#603] Random stat/xp ranges can no longer grant one extra point.
+ * [#486] Added friends requirements
+ * [#370] Supports limits on number of gifts sent per day and per day per reciever.
+
+
+===========
+i7 to i8
+===========
+
+-- Editor Changes --
+ * [#650] Improved Price tag description in Facebook shops config
+ * [#634] Visible attribute defaults to checked on first create now
+ * [#652] Selecting a game from game list takes you directly to the game
+ * [#625] New games drop straight into edit
+ * [#646,#626] Editor should no longer get confused when multiple games are open in differnt browser windows
+ * [#631, #599] Admins should be able to view and edit any games.
+ * [#609] Developers can't access incorrect version of config UI
+
+-- Core Changes --
+ * [#643] Item costs now show up in server responses correctly.
+ * [#644] Fix for gifts not working for some players.
+ * [#632] Shop items visibility requirement is now honoured.
+
+===========
+i6_b to i7
+===========
+ * [#552] Quote marks in mail messages are no longer incorrectly quoted
+ * [#579] Fixed warning in logs from selling an item
+ * [#485] You can now get a lists of friends from within scripts
+ * [#608] Invalid scripts nolonger crash the server on startup
+ * [#222] Getting mail generates a server chunk
+
+===========
+i6 to i6_b
+===========
+ * [#628] Fix for empty modifier lists causing objects to fail to load
+ * [#616] Fix for GUI failing to list games correctly 
+
+===========
+i5 to i6
+===========
+ * [#525] Item regen times now show as second in GUI
+ * [#594] Shop description fields are now a consistent length in the GUI
+ * [#596] Consistent sell, consume checkbox background behaviour in the GUI.
+ * [#598] Shops now have tags re-enabled in the GUI
+ * [#604] Fixed issue with large ids in facebook credits not working
+ * [#610] GUI Labels for attribute and currency per level improved
+ * [#616] Creating a new game nolonger hangs the GUI
+ * [#619] Added drop name to error message when an invalid drop is requested by a script
+ * [#620] "Nothing" modifier no longer crashes server on startup
+
+===========
+i4 to i5
+===========
+ * [#561] Fixed some responses not coming back as utf-8
+ * [#589] Reinstated the reports page 
+ * Misc gui fixes and restyles, including
+   * [#558] Input boxes restyled
+   * [#582,#588] Item consume controls for items are on their own page
+   * [#531] Random choice modifers now have a delete button 
+   * [#590] Navigation restructured for Bolt
+   * [#571] Item equip is now its own tab, styled and nice with deletes
+   * [#586] Delete hover for RCM blocks is highlights the block it's deleting
+   * [#583] Add buttons for RCM now use a pulldown, not auto-default-add
+   * [#536] Lua scripts now syntax highlight correctly
+   * [#570,#575,#576,#572] Itemtypes are now fully working, and available through pulldowns
+   * [#538] General tabs all render correctly again
+   * [#484] Resource limiters (_attributes) no longer list in attributes lister
+   * [#569] ikey boxes for created elements hide when data is already set
+ * [#580] Leaderboards once again return -1 if player_id not found
+ * [#564] Slashes in scripts are nolonger incorrectly stripped
+ * [#471] Additional players can now be loaded into scripts by their player id
+ * [#578] Fixed bug that was causing mixed key arrays to save incorrectly from
+          sripts - preventing them from being reloaded
+ * [#574,#573] Removed logging that was causing crashes on some browsers
+ * [#564] Add game from the main menu now directs to correct version of UI.
+ * [#556] Creating a new gift from the UI works again
+
+============
+i3_b to i4
+============
+
+--User Visible--
+ * Collect info comes back on equip/unequip [#477, commit 1fae108]
+ * Collect resets on equip/unequip [#477, commit 1fae108]
+ * Exposure of new requirement/modifier/cost system throughout the GUI [#386, various commits]
+ * Script editors use lua mode for highlighting [#536, commit 597215c]
+ * Various GUI cleanup [#386, variuos commits]
+
+============
+i3 to i3_b
+============
+
+--User Visible--
+ * Fixed crash when getting facebook friends. [#537, commit ac44e7e12309 ]
+
+============
+i2 to i3
+============
+
+--User Visible--
+
+ * Regen and RegenLimited stats post a regen message on equip. [#477, commit 5d264de5 ]
+ * Fixes a bug where unequipping and reequiping a regen limited item would not reset its timer [ commit 5d264de5 ]
+ * Gifts now provide the id and name of the sender, from mail/what_can_i_accept [#331, commit caa3f9aa60 ]
+   - Pending gifts will not get this additional information but will return sender_id="0", sender_name=""
+ *    Gift tags and ikeys come back in what_can_i_accept. [#476, commit 365d22043 ]
+ * Fixed invalid loop variable that was causing crashes. [#528, commit 85c439d37 ]
+ * AuthToken now uses 64b integers   [#461, commit 60414ad610d2 ]
+ * Improved some documentation [#502, commit e0c18015a6 ]
+   - items/use now mentions that it is used for collect
+   - items/list now mentions that it return collect info
+   - items/set now mentions that it differs from item script variables
+   - info/user clarified that an item must be equipped to be returned by the call
+ * Change user/private_set and user/private_get for netdrive[#452, commit 585c524f ]
+ * Fixed parameter name in admin/delete_player docs, that was causing delete player to fail from console [#445 commit c03f97c5 ]
+ * Deleting a script in UI now correctly removes it from the server on publish [#466, commit 25156b12 ]
+ * Item types default to unlimited max equip [#473, commit  6bd544531c ]
+ * Shopitem description is no longer forcibly required by UI [#457, commit 7d203fd83 ]
+
+--Internal--
+ * Removed test for removed items/show controller [#501, commit c03f97c5 ]
+ *  Remove rig from chameleon repo and add it to roar_admin repo [#381, 9ad2ec17c ]

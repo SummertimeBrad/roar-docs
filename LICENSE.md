@@ -1,5 +1,5 @@
 # License Agreement
-Last update: June 13, 2013
+Last update: July 6, 2013
 
 THIS AGREEMENT IS MADE AS OF THE EFFECTIVE DATE BETWEEN YOU, THE USER ( the **"User"**, **"you"**, **"your"** ) AND RUN WITH ROBOTS PTY LTD ( **"Run With Robots"**, **"we"**, **"us"**, **"our"** ) WITH RESPECT TO YOUR USE OF ROARENGINE.
 
@@ -26,7 +26,7 @@ In this Agreement:
 - **Instance** means a RoarEngine installation designated for use by a specific game or project as at the Effective Date. For the avoidance of doubt, this includes any "development", "staging" or "quality assurance" installations of RoarEngine for that same game or project, provided that these are not for public use, and are solely utilised for testing and development purposes.
 - **License** means as set forth in section 4.
 - **RoarEngine** means as set forth in section 1.
-- **Single Instance License** means a license to use RoarEngine for only one Instance, for a single game or project for the lifetime of license. Single Instance Licenses may not be reused for subsequent games or projects even if the original game or project is no longer operating.
+- **Single Instance License** means a license to use RoarEngine for only one Instance, for a single game or project for the lifetime of the license. Single Instance Licenses may not be reused for subsequent games or projects even if the original game or project is no longer operating.
 - **Unlimited Instance License** means a license to use RoarEngine for any number of game or project Instances, without the need to purchase a Single Instance License for each.
 
 
@@ -86,7 +86,7 @@ You agree that Run With Robots (and our related bodies corporate, agents, office
 ### 11. No Warranty
 (1) To the extent permitted by law, any condition or warranty which would otherwise be implied into this Agreement is excluded. Where legislation implies any condition or warranty, and that legislation prohibits us from excluding or modifying the application of, or our liability under, any such condition or warranty, that condition or warranty is deemed to be included but our liability is limited for a breach of that condition or warranty to supplying the relevant services again.
 (2) This disclaimer does not exclude liability arising under statute if, and to the extent, such liability cannot be lawfully excluded.
-(3) In summary, THE LICENSE IS GRANTED ON THE CONDITION THAT YOU AGREE THAT: (A) ROARENGINE IS PROVIDED ON AN ‘AS-IS’, AND‚ ‘AS AVAILABLE’ BASIS. (B) YOUR USE OF ROARENGINE IS ENTIRELY AT YOUR OWN RISK. (C) RUN WITH ROBOTS DOES NOT REPRESENT OR WARRANT THAT ROARENGINE WILL MEET ANY OR ALL OF YOUR PARTICULAR REQUIREMENTS, THAT ROARENGINE WILL OPERATE ERROR-FREE OR UNINTERRUPTED, THAT ANY PROGRAMMING ERRORS IN ROARENGINE CAN BE FOUND OR CORRECTED OR THAT ROARENGINE DOES NOT INFRINGE UPON THE INTELLECTUAL PROPERTY RIGHTS OF OTHER PERSONS. (D) ROARENGINE IS PROVIDED WITHOUT ANY WARRANTY TO THE FULLEST EXTENT PERMISSIBLE BY LAW.
+(3) In summary, THE LICENSE IS GRANTED ON THE CONDITION THAT YOU AGREE THAT: (A) ROARENGINE IS PROVIDED ON AN ‘AS-IS', AND‚ ‘AS AVAILABLE' BASIS. (B) YOUR USE OF ROARENGINE IS ENTIRELY AT YOUR OWN RISK. (C) RUN WITH ROBOTS DOES NOT REPRESENT OR WARRANT THAT ROARENGINE WILL MEET ANY OR ALL OF YOUR PARTICULAR REQUIREMENTS, THAT ROARENGINE WILL OPERATE ERROR-FREE OR UNINTERRUPTED, THAT ANY PROGRAMMING ERRORS IN ROARENGINE CAN BE FOUND OR CORRECTED OR THAT ROARENGINE DOES NOT INFRINGE UPON THE INTELLECTUAL PROPERTY RIGHTS OF OTHER PERSONS. (D) ROARENGINE IS PROVIDED WITHOUT ANY WARRANTY TO THE FULLEST EXTENT PERMISSIBLE BY LAW.
 (4) You agree to indemnify Run With Robots (and our related bodies corporate, agents, officers and employees) for any loss or damage suffered or costs incurred by any of those parties if You (or anyone using Your account, whether authorised by You or not) breaches these terms and conditions, or any laws, in relation to RoarEngine.
 
 

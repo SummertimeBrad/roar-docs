@@ -85,7 +85,7 @@ Once that is setup, you can begin installing Roar.
     curl http://www.lua.org/ftp/lua-5.1.tar.gz -o lua-5.1.tar.gz
     tar xzf lua-5.1.tar.gz
     cd lua-5.1
-    patch -p0 < roarengine/lua_patch.patch
+    patch -p0 < roarengine/external/lua_patch.patch
     make linux
     sudo make install
     ~~~
@@ -93,7 +93,7 @@ Once that is setup, you can begin installing Roar.
 * Build the **fastjson** module:
 
     ~~~
-    cd roarengine/fastjson ; make ; cd ..
+    cd roarengine/external/fastjson ; make ; cd ..
     ~~~
 
 * **Build Roar**:
